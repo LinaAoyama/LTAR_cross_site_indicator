@@ -46,8 +46,8 @@ CPER_all <- rbind(CPER_maxmin,CPER_pre_summary[,-1], CPER_average[-c(2,4), -2])
 #create spider diagrams
 radarchart(CPER_all[,2:6],
            cglty = 1, cglcol = "gray",
-           pcol = c(4,3, 2), plwd = 2)
+           pcol = c(4,3, 2), plwd = 2 , plty = 1)
 
 radarchart(CPER_all[-3,2:6], #remove pre-treatment
            cglty = 1, cglcol = "gray",
-           pcol = c(3, 2), plwd = 2) #Aspirational practice reduced beef production but increased C3 grass. No change in grassland sparrow counts or forage.
+           pcol = c(3, 2), plwd = 2, plty = 1) #Aspirational practice reduced beef production but increased C3 grass. No change in grassland sparrow counts or forage.
