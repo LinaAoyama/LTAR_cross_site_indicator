@@ -8,8 +8,12 @@ data_CPER_forage <- read_csv(paste(datpath, "/CPER/CARM_ForagePdn_kg-ha.csv", se
 data_CPER_grsp <- read_csv(paste(datpath, "/CPER/CARM_GRSP_DetectionsPerPoint.csv", sep = ""))
 
 #ABS
-data_
-  
+data_ABS_ANPP <-read_csv(paste(datpath, "/ABS/ABS_ANPP.csv", sep = ""))
+data_ABS_birds <- read_csv(paste(datpath, "/ABS/ABS_birds.csv", sep = ""))
+data_ABS_forage_quality <- read_csv(paste(datpath, "/ABS/ABS_forage_quality.csv", sep = ""))
+data_ABS_GHG <- read_csv(paste(datpath, "/ABS/ABS_GHG.csv", sep = ""))
+data_ABS_plant_diversity <- read_csv(paste(datpath, "/ABS/ABS_plant_diversity.csv", sep = ""))
+
 #This is a function for calculating standard error
 se<-function(x){
   sd(x, na.rm = TRUE)/sqrt(length(x))
