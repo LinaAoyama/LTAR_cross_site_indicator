@@ -26,13 +26,11 @@ se<-function(x){
 avg_ecosites_CPER_forage <- data_CPER_forage %>%
   group_by(YearSampled, Treatment, Ecosite) %>%
   summarise(mean_C4 = mean(C4PG), se_C4 = se(C4PG),
-            mean_C3 = mean(C3PG), se_C3 = se(C3PG),
-            mean_forage = mean(Forage), se_forage = se(Forage))
+            mean_C3 = mean(C3PG), se_C3 = se(C3PG))
 avg_CPER_forage <- data_CPER_forage %>%
   group_by(YearSampled, Treatment) %>%
   summarise(mean_C4 = mean(C4PG), se_C4 = se(C4PG),
-            mean_C3 = mean(C3PG), se_C3 = se(C3PG),
-            mean_forage = mean(Forage), se_forage = se(Forage))
+            mean_C3 = mean(C3PG), se_C3 = se(C3PG))
 colnames(avg_CPER_forage)[1] <- "Year"
 #average of grassland sparrows
 avg_ecosites_CPER_grsp <- data_CPER_grsp %>%
@@ -54,5 +52,5 @@ CPER_combined <- CPER_beef_long %>%
   left_join(avg_CPER_forage, by = c("Year", "Treatment")) %>%
   left_join(avg_CPER_grsp, by = c("Year", "Treatment"))
 CPER_combined_simple <- CPER_combined %>%
-  select(Year, Treatment, Beef_Production, mean_C4, mean_C3, mean_forage, mean_grsp) 
-colnames(CPER_combined_simple) <- c("Year", "Treatment", "Beef_Production", "C4", "C3", "Forage", "Grassland_Sparrow")
+  select(Year, Treatment, Beef_Production, mean_C4, mean_C3,  mean_grsp) 
+colnames(CPER_combined_simple) <- c("Year", "Treatment", "Beef_Production", "C4", "C3", "Grassland_Sparrow")
