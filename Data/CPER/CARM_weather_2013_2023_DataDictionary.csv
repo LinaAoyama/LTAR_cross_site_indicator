@@ -1,0 +1,6 @@
+Data Table Name,Variable Name,Unit,Variable description,Codes defined,"Data Type (String, Numeric, Date)"
+CARM_weather_2013_2023,Year,YYYY,Year precipitation data were collected,NA,Date
+CARM_weather_2013_2023,Precip_mm_Year,mm,mm of precipitation collected for the year,NA,Numeric
+CARM_weather_2013_2023,Precip_mm_WaterYear,mm,mm of precipitation collected for October 1 thru September 30,NA,Numeric
+CARM_weather_2013_2023,Precip_mm_Apr_Aug,mm,mm of precipitation collected for April 1 thru August 31,NA,Numeric
+CARM_weather_2013_2023,Precip_mm_Apr_Sept,mm,mm of precipitation collected for April 1 thrus September 30,NA,Numeric

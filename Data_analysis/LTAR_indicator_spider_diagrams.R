@@ -47,4 +47,12 @@ radarchart(CPER_all[,2:5],
 
 radarchart(CPER_all[-3,2:5], #remove pre-treatment
            cglty = 1, cglcol = "gray",
-           pcol = c(3, 2), plwd = 2, plty = 1) #Aspirational practice reduced beef production but increased C3 grass. No change in grassland sparrow counts or forage.
+           pcol = c("#AF69EE", "#FFA500"), 
+           plwd = 2, plty = 1,
+           vlab = c("Beef Production", "C4 Grass", "C3 Grass", "Grassland Sparrow")) #Aspirational practice reduced beef production but increased C3 grass. No change in grassland sparrow counts or forage.
+legend("topright",
+       legend = c("Aspirational", "Conventional"),
+       col = c("#AF69EE", "#FFA500"),
+       fill = c("#AF69EE", "#FFA500"),
+       bty = "n",
+       cex = 0.8)

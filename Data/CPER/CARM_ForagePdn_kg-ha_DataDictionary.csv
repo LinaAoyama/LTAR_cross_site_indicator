@@ -1,0 +1,23 @@
+Data Table Name,Variable Name,Unit,Variable description,Codes defined,"Data Type (String, Numeric, Date)"
+CARM_ForagePdn_kg-ha,YearSampled,YYYY,Year annual production was sampled,NA,Date
+CARM_ForagePdn_kg-ha,Pasture,NA,Pasture where annual production was sampled,NA,String
+CARM_ForagePdn_kg-ha,Plot,NA,One of 4 or 6 plots where annual production was sampled,"1, 2, 3, 4, 5, or 6",String
+CARM_ForagePdn_kg-ha,Transect,NA,Transect number one or fours within a plot where annual production was sampled,1 or 4,String
+CARM_ForagePdn_kg-ha,Distance,meters,Distance of 10 or 20 meters along transect where annual production was sampled,10 or 20,String
+CARM_ForagePdn_kg-ha,Forage,kgPerHa,"Annual production of functional groups and species providing food for cattle, which consist of blue grama, buffalograss and other warm season perennial grasses, cool season perennial grasses, and forbs ",Forage,Numeric
+CARM_ForagePdn_kg-ha,C4PG,kgPerHa,"Annual production of blue grama, buffalograss and other warm season perennial grasses",C4PG,Numeric
+CARM_ForagePdn_kg-ha,ANHP,kgPerHa,"Annual production of herbaceous species and groups, which does not inlcude standing dead from the previous year nor sub-shrubs",ANHP,Numeric
+CARM_ForagePdn_kg-ha,AG,kgPerHa,"Annual production of annual grasses, in effect sixweeks fescue",AG,Numeric
+CARM_ForagePdn_kg-ha,BOBU,kgPerHa,Annual production of blue grama (Bouteloua gracilis) and buffalograss (Bouteloua dactyloides),BOBU,Numeric
+CARM_ForagePdn_kg-ha,C3PG,kgPerHa,Annual production of coll season perennial grasses,C3PG,Numeric
+CARM_ForagePdn_kg-ha,FORB,kgPerHa,Annual production of forbs,FORB,Numeric
+CARM_ForagePdn_kg-ha,SD,kgPerHa,Standing dead  herbaceous vagatation produced in a previous year,SD,Numeric
+CARM_ForagePdn_kg-ha,WSPG,kgPerHa,"Annual production of warm season perennails grasses, othen than blue grama and buffalo grass",WSPG,Numeric
+CARM_ForagePdn_kg-ha,SS,kgPerHa,Annual production of subshrubs,SS,Numeric
+CARM_ForagePdn_kg-ha,OTHER,kgPerHa,Annual production of other specis not classified within these groups,OTHER,Numeric
+CARM_ForagePdn_kg-ha,Block,NA,Blocks represent ten paired treatment and control pastures,"1, 2, 3, 4, 5, 6, 7, 8, 9, 10",String
+CARM_ForagePdn_kg-ha,Treatment,NA,Collaborative Adaptive Rangeland Management or Traditional Rangeland Management,TGM and AGM OR TGM and CARM,String
+CARM_ForagePdn_kg-ha,Ecosite,NA,NRCS classification of plot as informed by soil type,"loamy, sandy or salt flats",String
+CARM_ForagePdn_kg-ha,PastureSize_ha,ha,size of pasture,NA,Numeric
+CARM_ForagePdn_kg-ha,X,meters,Universal Transverse Mercator in zone 13N,UTM,GeoLocation
+CARM_ForagePdn_kg-ha,Y,meters,Universal Transverse Mercator in zone 13N,UTM,GeoLocation

@@ -1,8 +1,13 @@
-##Load data
+##Compile data
+
+#load packages
 library(tidyverse)
 
+#set working directory
+datpath <- getwd()
+
 #CPER
-data_CPER_weather <- read_csv(paste(datpath, "/CPER/CARM_weather_2013_2023.csv", sep = ""))
+data_CPER_weather <- read_csv(paste(datpath, "/Data/CPER/CARM_weather_2013_2023.csv", sep = ""))
 data_CPER_beef <- read_csv(paste(datpath, "/CPER/CARM_BeefProduction_kg-ha.csv", sep = ""))
 data_CPER_forage <- read_csv(paste(datpath, "/CPER/CARM_ForagePdn_kg-ha.csv", sep = ""))
 data_CPER_grsp <- read_csv(paste(datpath, "/CPER/CARM_GRSP_DetectionsPerPoint.csv", sep = ""))

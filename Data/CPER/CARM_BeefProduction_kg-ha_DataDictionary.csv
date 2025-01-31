@@ -1,0 +1,12 @@
+Data Table Name,Variable Name,Unit,Variable description,Codes defined,"Data Type (String, Numeric, Date)"
+CARM_BeefProduction_kg-ha.csv,Year,YYYY,Year annual production was sampled,NA,Date
+CARM_BeefProduction_kg-ha.csv,Num_Steers,count,Number of steers in the herd,NA,Numeric
+CARM_BeefProduction_kg-ha.csv,Days,days,Number of days steers were grazing within treatment pastures,NA,Numeric
+CARM_BeefProduction_kg-ha.csv,Ha,ha,Total hectares grazed under each treatment,NA,Numeric
+CARM_BeefProduction_kg-ha.csv,AUD_per_ha,number,Stocking density as animal unit per day per hectare,NA,Numeric
+CARM_BeefProduction_kg-ha.csv,ADG_kg_head_CARM,kgPerIndividual,Mean average daily gain per individual in TRM herd,NA,Numeric
+CARM_BeefProduction_kg-ha.csv,ADG_kg_head_TRM,kgPerIndividual,Mean average daily gain per individual in CARM herd,NA,Numeric
+CARM_BeefProduction_kg-ha.csv,ADG_Diff,kgPerIndividual,Difference in mean avergae daily gain between for CARM and TRM herds,NA,Numeric
+CARM_BeefProduction_kg-ha.csv,Beef_Production_kg_ha_CARM,kgPerHa,Mean season-long gain per hectares in CARM treatment,NA,Numeric
+CARM_BeefProduction_kg-ha.csv,Beef_Production_kg_ha_TRM,kgPerHa,Mean  season-long gain per hectares in TRM treatment,NA,Numeric
+CARM_BeefProduction_kg-ha.csv,Beef_Production_Diff,kgPerHa,Difference in mean season-long gain per hectare between for CARM and TRM treatments,NA,Numeric
