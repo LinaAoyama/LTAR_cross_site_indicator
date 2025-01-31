@@ -19,27 +19,48 @@ CPER_beef_timeseries <- ggplot(CPER_beef_long, aes(y = Beef_Production, x = Year
         panel.background = element_blank(),
         axis.line = element_line(colour = "black"),
         panel.border = element_rect(colour = "black", fill = NA, size = 1.2),
-        axis.title = element_text(size = 15))+
-  scale_color_manual(name = "Treatment", values = c("#AF69EE", "#FFA500"))+
+        axis.title = element_text(size = 15),
+        axis.title.x = element_blank())+
+  scale_color_manual(name = "Treatment", 
+                     values = c("#AF69EE", "#FFA500"),
+                     labels = c("Aspirational", "Conventional"))+
   scale_x_continuous(breaks = 2013:2023)+
   ylab("Beef Production \n (kg/ha)")
 
 #forage
-CPER_forage_timeseries <- ggplot(avg_CPER_forage, aes(y = mean_C4, x = Year, col = Treatment))+ #C4 is solid
+CPER_C4_timeseries <- ggplot(avg_CPER_forage, aes(y = mean_C4, x = Year, col = Treatment))+ 
   geom_point()+
   geom_line()+
-  geom_point(aes(y = mean_C3, x = Year, col = Treatment))+
-  geom_line(aes(y = mean_C3, x = Year, col = Treatment), linetype = "dashed")+ #C3 is dashed
+  #geom_point(aes(y = mean_C3, x = Year, col = Treatment))+
+  #geom_line(aes(y = mean_C3, x = Year, col = Treatment), linetype = "dashed")+
   theme(text = element_text(size=16),
         panel.grid.major = element_blank(),
         panel.grid.minor = element_blank(),
         panel.background = element_blank(),
         axis.line = element_line(colour = "black"),
         panel.border = element_rect(colour = "black", fill = NA, size = 1.2),
-        axis.title = element_text(size = 15))+
+        axis.title = element_text(size = 15),
+        axis.title.x = element_blank())+
   scale_color_manual(name = "Treatment", values = c("#AF69EE", "#FFA500"))+
   scale_x_continuous(breaks = 2013:2023)+
-  ylab("C3 & C4 Perennial Grass \n (kg/ha)")
+  ylab("C4 Perennial Grass \n (kg/ha)")
+
+CPER_C3_timeseries <- ggplot(avg_CPER_forage, aes(y = mean_C3, x = Year, col = Treatment))+ 
+  geom_point()+
+  geom_line()+
+  #geom_point(aes(y = mean_C3, x = Year, col = Treatment))+
+  #geom_line(aes(y = mean_C3, x = Year, col = Treatment), linetype = "dashed")+
+  theme(text = element_text(size=16),
+        panel.grid.major = element_blank(),
+        panel.grid.minor = element_blank(),
+        panel.background = element_blank(),
+        axis.line = element_line(colour = "black"),
+        panel.border = element_rect(colour = "black", fill = NA, size = 1.2),
+        axis.title = element_text(size = 15),
+        axis.title.x = element_blank())+
+  scale_color_manual(name = "Treatment", values = c("#AF69EE", "#FFA500"))+
+  scale_x_continuous(breaks = 2013:2023)+
+  ylab("C3 Perennial Grass \n (kg/ha)")
 
 #birds
 CPER_bird_timeseries <-ggplot(avg_CPER_grsp%>%filter(Year != "2024"), aes(y = mean_grsp, x = Year, col = Treatment))+
@@ -57,8 +78,11 @@ CPER_bird_timeseries <-ggplot(avg_CPER_grsp%>%filter(Year != "2024"), aes(y = me
   ylab(bquote(atop("Grasshopper Sparrows",(count~"/"~"0.07"~km2))))
 
 #combined timeseries
-ggarrange(CPER_beef_timeseries, CPER_forage_timeseries, CPER_bird_timeseries,
-          nrow = 3, ncol = 1, common.legend = TRUE)
+ggarrange(CPER_beef_timeseries, CPER_C4_timeseries, CPER_C3_timeseries,
+          CPER_bird_timeseries,
+          nrow = 4, ncol = 1, 
+          common.legend = TRUE,
+          align = "hv")
 
 #timeseries of diff from long-term mean of TGM
 CPER_diff <- CPER_combined_simple %>%
