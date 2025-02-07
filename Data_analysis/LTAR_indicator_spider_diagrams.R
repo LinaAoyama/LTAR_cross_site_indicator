@@ -56,3 +56,15 @@ legend("topright",
        fill = c("#AF69EE", "#FFA500"),
        bty = "n",
        cex = 0.8)
+
+#ABS
+#calculate max and min
+ABS_maxmin <- data.frame(
+  Treatment = c("Max", "Min"),
+  ANPP = c(max(data_ABS_ANPP$ANPP_kg_ha), min(data_ABS_ANPP$ANPP_kg_ha)),
+  Crude_Protein = c(max(data_ABS_forage_quality$CP_DM_per), min(data_ABS_forage_quality$CP_DM_per)),
+  Plant_Richness = c(max(calculate_ABS_plantsp$plant_sp_richness), min(calculate_ABS_plantsp$plant_sp_richness)),
+  Bird_Richness = c(max(calculate_ABS_bird$bird_sp_richness), min(calculate_ABS_bird$bird_sp_richness)),
+  N2O = c(max(data_ABS_GHG$`N2O_conc_mg_m-2_min-1`), min(data_ABS_GHG$`N2O_conc_mg_m-2_min-1`)),
+  CO2 = c(max(data_ABS_GHG$`CO2_conc_mg_m-2_min-1`), min(data_ABS_GHG$`CO2_conc_mg_m-2_min-1`))
+)
