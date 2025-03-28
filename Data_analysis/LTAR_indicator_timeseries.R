@@ -41,7 +41,27 @@ CPER_C4_timeseries <- ggplot(avg_CPER_forage, aes(y = mean_C4, x = Year, col = T
         panel.border = element_rect(colour = "black", fill = NA, size = 1.2),
         axis.title = element_text(size = 15),
         axis.title.x = element_blank())+
-  scale_color_manual(name = "Treatment", values = c("#AF69EE", "#FFA500"))+
+  scale_color_manual(name = "Treatment", values = c("#AF69EE", "#FFA500"),
+                     labels = c("Aspirational", "Conventional"))+
+  scale_x_continuous(breaks = 2013:2023)+
+  ylab("C4 Perennial Grass \n (kg/ha)")
+
+CPER_C4_timeseries_ecosites <- ggplot(CPER_combined_ecosites, aes(y = mean_C4, x = Year, col = Treatment))+ 
+  geom_point()+
+  geom_line()+
+  facet_wrap(~Ecosite, ncol = 1)+
+  #geom_point(aes(y = mean_C3, x = Year, col = Treatment))+
+  #geom_line(aes(y = mean_C3, x = Year, col = Treatment), linetype = "dashed")+
+  theme(text = element_text(size=16),
+        panel.grid.major = element_blank(),
+        panel.grid.minor = element_blank(),
+        panel.background = element_blank(),
+        axis.line = element_line(colour = "black"),
+        panel.border = element_rect(colour = "black", fill = NA, size = 1.2),
+        axis.title = element_text(size = 15),
+        axis.title.x = element_blank())+
+  scale_color_manual(name = "Treatment", values = c("#AF69EE", "#FFA500"),
+                     labels = c("Aspirational", "Conventional"))+
   scale_x_continuous(breaks = 2013:2023)+
   ylab("C4 Perennial Grass \n (kg/ha)")
 
@@ -58,9 +78,30 @@ CPER_C3_timeseries <- ggplot(avg_CPER_forage, aes(y = mean_C3, x = Year, col = T
         panel.border = element_rect(colour = "black", fill = NA, size = 1.2),
         axis.title = element_text(size = 15),
         axis.title.x = element_blank())+
-  scale_color_manual(name = "Treatment", values = c("#AF69EE", "#FFA500"))+
+  scale_color_manual(name = "Treatment", values = c("#AF69EE", "#FFA500"),
+                     labels = c("Aspirational", "Conventional"))+
   scale_x_continuous(breaks = 2013:2023)+
   ylab("C3 Perennial Grass \n (kg/ha)")
+
+CPER_C3_timeseries_ecosites <- ggplot(CPER_combined_ecosites, aes(y = mean_C3, x = Year, col = Treatment))+ 
+  geom_point()+
+  geom_line()+
+  facet_wrap(~Ecosite, ncol = 1)+
+  #geom_point(aes(y = mean_C3, x = Year, col = Treatment))+
+  #geom_line(aes(y = mean_C3, x = Year, col = Treatment), linetype = "dashed")+
+  theme(text = element_text(size=16),
+        panel.grid.major = element_blank(),
+        panel.grid.minor = element_blank(),
+        panel.background = element_blank(),
+        axis.line = element_line(colour = "black"),
+        panel.border = element_rect(colour = "black", fill = NA, size = 1.2),
+        axis.title = element_text(size = 15),
+        axis.title.x = element_blank())+
+  scale_color_manual(name = "Treatment", values = c("#AF69EE", "#FFA500"),
+                     labels = c("Aspirational", "Conventional"))+
+  scale_x_continuous(breaks = 2013:2023)+
+  ylab("C3 Perennial Grass \n (kg/ha)")
+
 
 #birds
 CPER_bird_timeseries <-ggplot(avg_CPER_grsp%>%filter(Year != "2024"), aes(y = mean_grsp, x = Year, col = Treatment))+
@@ -74,6 +115,22 @@ CPER_bird_timeseries <-ggplot(avg_CPER_grsp%>%filter(Year != "2024"), aes(y = me
         panel.border = element_rect(colour = "black", fill = NA, size = 1.2),
         axis.title = element_text(size = 15))+
   scale_color_manual(name = "Treatment", values = c("#AF69EE", "#FFA500"))+
+  scale_x_continuous(breaks = 2013:2023)+
+  ylab(bquote(atop("Grasshopper Sparrows",(count~"/"~"0.07"~km2))))
+
+CPER_bird_timeseries_ecosites <-ggplot(CPER_combined_ecosites%>%filter(Year != "2024"), aes(y = mean_grsp, x = Year, col = Treatment))+
+  geom_point()+
+  geom_line()+
+  facet_wrap(~Ecosite, ncol = 1)+
+  theme(text = element_text(size=16),
+        panel.grid.major = element_blank(),
+        panel.grid.minor = element_blank(),
+        panel.background = element_blank(),
+        axis.line = element_line(colour = "black"),
+        panel.border = element_rect(colour = "black", fill = NA, size = 1.2),
+        axis.title = element_text(size = 15))+
+  scale_color_manual(name = "Treatment", values = c("#AF69EE", "#FFA500"),
+                     labels = c("Aspirational", "Conventional"))+
   scale_x_continuous(breaks = 2013:2023)+
   ylab(bquote(atop("Grasshopper Sparrows",(count~"/"~"0.07"~km2))))
 
