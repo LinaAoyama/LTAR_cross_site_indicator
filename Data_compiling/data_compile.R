@@ -31,6 +31,7 @@ avg_ecosites_CPER_forage <- data_CPER_forage %>%
   group_by(YearSampled, Treatment, Ecosite) %>% #summary by ecosites
   summarise(mean_C4 = mean(C4PG), se_C4 = se(C4PG),
             mean_C3 = mean(C3PG), se_C3 = se(C3PG))
+colnames(avg_ecosites_CPER_forage)[1] <- "Year"
 avg_CPER_forage <- data_CPER_forage %>%
   group_by(YearSampled, Treatment) %>%
   summarise(mean_C4 = mean(C4PG), se_C4 = se(C4PG),
@@ -58,6 +59,9 @@ CPER_combined <- CPER_beef_long %>%
 CPER_combined_simple <- CPER_combined %>%
   select(Year, Treatment, Beef_Production, mean_C4, mean_C3,  mean_grsp) 
 colnames(CPER_combined_simple) <- c("Year", "Treatment", "Beef_Production", "C4", "C3", "Grassland_Sparrow")
+CPER_combined_ecosites <- CPER_beef_long %>%
+  left_join(avg_ecosites_CPER_forage , by = c("Year", "Treatment")) %>%
+  left_join(avg_ecosites_CPER_grsp, by = c("Year", "Treatment", "Ecosite"))
 
 #ABS
 #average of ANPP
@@ -109,7 +113,7 @@ avg_ecosites_ABS_forage_quality <- data_ABS_forage_quality %>%
   na.omit()%>%
   mutate(Year = year(Date)) %>%
   mutate(Treatment = case_when(Treatment == "FB" ~ "BAU", 
-                               Treatment == "PBG" ~ "ASP")) %>% ##Double check with Shefali!
+                               Treatment == "PBG" ~ "ASP")) %>% 
   group_by(Year, Treatment, Pasture_Type) %>%
   summarise(mean_crude_protein = mean(CP_DM_per), se_crude_protein = se(CP_DM_per))
 avg_ABS_forage_quality <- data_ABS_forage_quality %>%
@@ -124,9 +128,10 @@ ABS_combined_ecosites <- avg_ecosites_ABS_ANPP %>%
   left_join(avg_ecosites_ABS_forage_quality, by = c("Year", "Treatment", "Pasture_Type")) %>%
   left_join(avg_ecosites_ABS_plantsp, by = c("Year", "Treatment", "Pasture_Type")) %>%
   full_join(avg_ecosites_ABS_bird, by = c("Year", "Treatment", "Pasture_Type")) %>%
-  full_join(avg_ecosites_ABS_GHG, by = c("Year", "Treatment", "Pasture_Type"))
+  full_join(avg_ecosites_ABS_GHG, by = c("Year", "Treatment", "Pasture_Type")) 
 ABS_combined <- avg_ABS_ANPP %>%
   left_join(avg_ABS_forage_quality, by = c("Year", "Treatment")) %>%
   left_join(avg_ABS_plantsp, by = c("Year", "Treatment")) %>%
   full_join(avg_ABS_bird, by = c("Year", "Treatment")) %>%
-  full_join(avg_ABS_GHG, by = c("Year", "Treatment"))
+  full_join(avg_ABS_GHG, by = c("Year", "Treatment")) 
+  
